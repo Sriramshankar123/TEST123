@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .button {
+      display: inline-block;
+      padding: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .square .button{
+        height: 70px;
+        width: 60px;
+        background-color:gray;
+    }
+
+    .counter {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton" class="button">Click Me</button>
+  <span id="counter" class="counter">0</span>
+  <span id="square" class="square"></span>
+
+  <script>
+    var button = document.getElementById("myButton");
+    var counter = document.getElementById("counter");
+    var square= document.getElementById("square");
+    var count = 0;
+
+    button.addEventListener("click", function() {
+      count++;
+      counter.innerText = count;
+      button.style.backgroundColor = getRandomColor();
+    });
+
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+  </script>
+</body>
+</html>
